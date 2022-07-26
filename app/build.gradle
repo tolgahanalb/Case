@@ -1,0 +1,75 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdk builds.compileSdkVersion
+    buildToolsVersion builds.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.tolgahan.android"
+        minSdk 21
+        targetSdk 30
+        versionCode packages.versionCode
+        versionName packages.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation "androidx.core:core-ktx:$versions.corektx"
+    implementation "androidx.appcompat:appcompat:$versions.appcompat"
+    implementation "com.google.android.material:material:$versions.material"
+    implementation "androidx.constraintlayout:constraintlayout:$versions.constraintlayout"
+    implementation "androidx.paging:paging-runtime-ktx:$versions.paging"
+
+    implementation("androidx.navigation:navigation-fragment-ktx:$versions.navigation")
+    implementation("androidx.navigation:navigation-ui-ktx:$versions.navigation")
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:$versions.navigation"
+
+    implementation("com.google.dagger:hilt-android:$versions.hilt")
+    kapt("com.google.dagger:hilt-android-compiler:$versions.hilt")
+    annotationProcessor ("androidx.hilt:hilt-compiler:$versions.hiltViewModel")
+
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecyclektx"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$versions.lifecyclektx"
+
+    implementation "com.squareup.retrofit2:retrofit:$versions.retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$versions.retrofit"
+
+    implementation "androidx.room:room-ktx:$versions.roomVersion"
+    kapt "androidx.room:room-compiler:$versions.roomVersion"
+
+    implementation "com.github.bumptech.glide:glide:$versions.glide"
+    annotationProcessor "com.github.bumptech.glide:compiler:$versions.glide"
+
+    implementation "com.orhanobut:hawk:2.0.1"
+
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
+}

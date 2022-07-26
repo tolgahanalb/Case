@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Case</string>
+    <string name="main_toolbar_text">Github Users</string>
+    <string name="detail_text">User Detail</string>
+    <string name="empty_result_text">Github User Listesi için arama yapınız.</string>
+    <string name="error_text">An error occurred</string>
+</resources>

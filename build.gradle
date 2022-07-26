@@ -1,0 +1,18 @@
+buildscript {
+    apply from: 'config.gradle'
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$versions.gradle"
+        classpath "com.google.dagger:hilt-android-gradle-plugin:$versions.hilt"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigation"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
